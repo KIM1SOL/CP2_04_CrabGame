@@ -33,6 +33,9 @@ public class Lobster extends Actor
     {
         // 만약 모서리에 있다면
         // 17정도 회전
+        if(isAtEdge()){
+            turn(17);
+        }
     }
     
     /**
@@ -59,5 +62,11 @@ public class Lobster extends Actor
         // au.wav 음악 재생
         // Oops! 문구 표시
         // Greenfoot.stop();
+        if(isTouching(Crab.class)){
+           removeTouching(Crab.class);
+           Greenfoot.playSound("au.wav");
+           getWorld().showText("Oops!", 300,200);
+           Greenfoot.stop();
+           }
     }    
 }
